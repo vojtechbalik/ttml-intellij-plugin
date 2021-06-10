@@ -1,0 +1,25 @@
+{
+  parserClass="language.parser.TtmlParser"
+
+  extends="com.intellij.extapi.psi.ASTWrapperPsiElement"
+
+  psiClassPrefix="Ttml"
+  psiImplClassSuffix="Impl"
+  psiPackage="language.psi"
+  psiImplPackage="language.psi.impl"
+
+  elementTypeHolderClass="language.psi.TtmlTypes"
+  elementTypeClass="language.psi.TtmlElementType"
+  tokenTypeClass="language.psi.TtmlTokenType"
+}
+
+ttmlFile ::=  (textt | modifier)*
+
+modifier ::= STATE_MOD | url
+
+url_text_markup ::= (textt | STATE_MOD)*
+
+// I made some assumptions about the semantics of the URL markup
+url ::= URL_START_MOD textt? (URL_TEXT_SEP_MOD url_text_markup?)? URL_END_MOD
+
+textt ::= TEXT_TOK

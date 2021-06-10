@@ -1,0 +1,29 @@
+<idea-plugin>
+    <id>cz.vojtechbalik.ttml_gradle_plugin</id>
+    <name>TTML</name>
+    <vendor email="balikvo1@fit.cvut.cz" url="http://www.fit.cvut.cz">Vojtech Balik</vendor>
+
+    <description><![CDATA[
+    TTML - Teletype Markup Language.
+    ]]></description>
+
+    <!-- please see https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html
+         on how to target different products -->
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <fileType name="TTML" implementationClass="language.TtmlFileType"
+                  fieldName="INSTANCE" language="TTML" extensions="ttml"/>
+        <lang.parserDefinition language="TTML"
+                               implementationClass="language.TtmlParserDefinition"/>
+
+        <lang.syntaxHighlighterFactory language="TTML"
+                                       implementationClass="language.TtmlSyntaxHighlighterFactory"/>
+
+        <colorSettingsPage implementation="language.TtmlColorSettingsPage"/>
+    </extensions>
+
+    <actions>
+        <!-- Add your actions here -->
+    </actions>
+</idea-plugin>
